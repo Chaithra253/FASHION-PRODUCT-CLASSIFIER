@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AANYA{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/LOGO.jpg') }}" alt="AANYA Logo">
+                <h1>AANYA</h1>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('classify') }}">Classify</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
+                <li><a href="{{ url_for('results') }}">Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AANYA. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultsPopup = document.getElementById('results-popup');
+            const closeBtn = document.querySelector('.close-btn');
+        
+            // Function to show popup
+            function showPopup(results) {
+                const resultsContainer = document.getElementById('results-container');
+                resultsContainer.innerHTML = results; // Update with actual results
+                resultsPopup.style.display = 'flex';
+            }
+        
+            // Close popup when close button is clicked
+            closeBtn.addEventListener('click', function() {
+                resultsPopup.style.display = 'none';
+            });
+        
+            // You can call `showPopup()` function with results when classification is done
+        });
+        </script>
+        
+</body>
+</html>

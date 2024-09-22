@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AANYA{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to AANYA</h1>
+        <p>Your Ultimate Fashion Image Classifier</p>
+        <a href="{{ url_for('classify') }}" class="btn">Get Started</a>
+    </div>
+    <div class="background-overlay"></div>
+</section>
+
+<section class="features">
+    <h2>Features</h2>
+    <div class="feature-card">
+        <h3>Bulk Image Classification</h3>
+        <p>Upload and classify up to 200 images at once.</p>
+    </div>
+    <div class="feature-card">
+        <h3>High Accuracy</h3>
+        <p>Our model ensures precise classification of fashion items.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Easy to Use</h3>
+        <p>Simple and intuitive interface for all the data experts and designers of the industry.</p>
+    </div>
+</section>
+{% endblock %}
